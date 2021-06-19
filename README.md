@@ -1,8 +1,8 @@
-<h1 align="center">LULBOT</h1>
+<h1 align="center">RADIO BOT</h1>
 <p align="center">
   <img src="assets/logo.png" alt="lul-bot-logo" width="120px" height="120px"/>
   <br>
-  <i>A Discord bot written for your server</i>
+  <i>A Discord Radio bot written for your server</i>
   <br>
 </p>
 <hr>
@@ -20,11 +20,17 @@
 Before running this project you must create a ```.env``` file which should contains the following keys (This can be changed in the source code)
 <br>
 ```
-LUL_BOT_TKN=Your_Discord_Bot_token
-TENOR_TOKEN=Tenor_token // this used for generating gifs
-AIRTABLE_KEY=Airtable_key // this is currently used to store data for my CoD mobile loadouts
+RADIO_BOT_TKN=Your_Discord_Bot_token
+RADIO_CHANNEL= A Voice Channel ID // this voice channel is used for playing music
+NOW_PLAYING_CHANNEL=A Text Channel ID // this channel is used for displaying now playing notifications
+ADMIN_ID = Admin User ID // This is the ID of the admin user who has permission to stop and start Radio
 ```
 
+### Commands
+```
+!radioStart // Command to start the Radio
+!radioStop // Command to stop the radio
+```
 ### Credits
 [CodeLyon][codelyon] - For discord.js getting started videos
 

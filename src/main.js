@@ -1,32 +1,23 @@
 require('dotenv').config();
 const fs = require('fs');
 const { Client, Collection } = require('discord.js');
-const confusion = require('./commons/confusion');
+const { env } = require('process');
 
 const client = new Client();
 client.commands = new Collection();
-let casualMessages = {};
 const CMD_PREFIX = "!";
 
 client.on('message', (message) => {
     if (message.author.bot) return;
+    if(message.author.id !== process.env.ADMIN_ID) return;
     if (message.content.startsWith(CMD_PREFIX)) {
         const commandReply = parseCMD(message);
-        if (!commandReply) {
-            confusion.execute(message);
-        }
-    } else {
-        const replyMessage = parseCasualMessage(message);
-        if (replyMessage) {
-            message.reply(replyMessage);
-        }
-    }
+    } 
 });
 
 client.on('ready', () => {
-    console.log("BOT is now LIVE");
+    console.log("RADIO BOT is now LIVE");
     initConfig();
-    initLanguages();
 })
 
 function initConfig() {
@@ -40,20 +31,6 @@ function initConfig() {
             });
         }
     })
-}
-
-function initLanguages() {
-    fs.readFile('src/language/language.json', 'utf8', (error, data) => {
-        if (error) throw error;
-        casualMessages = JSON.parse(data);
-    });
-}
-
-function parseCasualMessage(message) {
-    const { content } = message;
-    const parsedMessage = content.trim().toLowerCase();
-    if (!casualMessages.hasOwnProperty(parsedMessage)) return null;
-    return casualMessages[parsedMessage];
 }
 
 function parseCMD(message) {
@@ -73,7 +50,7 @@ function parseCMD(message) {
     return true;
 }
 
-client.login(process.env.LUL_BOT_TKN)
+client.login(process.env.RADIO_BOT_TKN)
     .catch((error) => {
         console.error("BOT Login Failed ", error);
     });

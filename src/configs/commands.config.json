@@ -1,44 +1,14 @@
 {
     "commands" :[
         {
-            "name": "jokes",
-            "description": "Bad Jokes Command",
-            "file": "./commands/jokes.js"
+            "name": "radioStart",
+            "description": "Start Radio",
+            "file": "./commands/radioStart.js"
         },
         {
-            "name": "play",
-            "description": "Play Music",
-            "file": "./commands/play.js"
-        },
-        {
-            "name": "stop",
-            "description": "Stop Music",
-            "file": "./commands/stop.js"
-        },
-        {
-            "name": "loadout",
-            "description": "Get CoD Mobile User Loadout",
-            "file": "./commands/loadout.js"
-        },
-        {
-            "name": "vaccine",
-            "description": "Get Vaccine Availability by Pincode",
-            "file": "./commands/vaccine.js"
-        },
-        {
-            "name": "got",
-            "description": "Game of Thrones Quotes",
-            "file": "./commands/got.js"
-        },
-        {
-            "name": "bb",
-            "description": "Breaking Bad Quotes",
-            "file": "./commands/bb.js"
-        },
-        {
-            "name": "dark",
-            "description": "Dark Series Quotes",
-            "file": "./commands/dark.js"
+            "name": "radioStop",
+            "description": "Stop Radio",
+            "file": "./commands/radioStop.js"
         }
     ]
 }
