@@ -6,14 +6,14 @@ let radioIndex = 0;
 async function broadcastRadio(client, args, message, voiceChannel, textChannel) {
     const connection = await voiceChannel.join();
     try {
-        playRadio(connection, textChannel, args);
+        playRadio(connection, textChannel, args, client);
     } catch (error) {
         console.log(error);
         textChannel.send('Something went wrong. RADIO MON got ill...😱😱');
     }
 }
 
-async function playRadio(connection, textChannel, args) {
+async function playRadio(connection, textChannel, args, client) {
     try {
         const [radioCommand] = args;
         const radioConfig = await readFile('src/configs/radio.json', 'utf8');
@@ -43,6 +43,7 @@ async function playRadio(connection, textChannel, args) {
             .setDescription(currentRadioStation.name)
             .setColor('LUMINOUS_VIVID_PINK');
         textChannel.send(nowPlayingMessage)
+        client.user.setPresence({ activity: { name: `${currentRadioStation.name}`, type: 'LISTENING' } });
     } catch (error) {
         console.log(error);
     };

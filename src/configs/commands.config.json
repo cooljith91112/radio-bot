@@ -11,7 +11,7 @@
             "file": "./commands/radioStop.js"
         },
         {
-            "name": "tune",
+            "name": "fm",
             "description": "FM Radio Tune IN",
             "file": "./commands/tune.js"
         }
