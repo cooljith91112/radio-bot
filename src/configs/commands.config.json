@@ -9,6 +9,11 @@
             "name": "radioStop",
             "description": "Stop Radio",
             "file": "./commands/radioStop.js"
+        },
+        {
+            "name": "tune",
+            "description": "FM Radio Tune IN",
+            "file": "./commands/tune.js"
         }
     ]
 }

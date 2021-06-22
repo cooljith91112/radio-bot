@@ -1,0 +1,32 @@
+[
+    {
+        "id": "ananthapuriFM",
+        "name": "Ananthapuri FM",
+        "url": "https://air.pc.cdn.bitgravity.com/air/live/pbaudio229/playlist.m3u8"
+    },
+    {
+        "id": "clubFM",
+        "name": "Club FM 99.6",
+        "url": "https://22243.live.streamtheworld.com/CLUBFMUAEAAC.aac"
+    },
+    {
+        "id": "nigthRide",
+        "name": "Nightride FM",
+        "url": "https://stream.nightride.fm/nightride.m4a"
+    },
+    {
+        "id": "recordSynthwave",
+        "name": "Record Synthwave",
+        "url": "http://air.radiorecord.ru:805/synth_320"
+    },
+    {
+        "id": "radioMango",
+        "name": "Radio Mango 91.9",
+        "url": "https://bcovlive-a.akamaihd.net/19b535b7499a4719a5c19e043063f5d9/ap-southeast-1/6034685947001/playlist.m3u8"
+    },
+    {
+        "id": "oneFM",
+        "name": "One FM 91.3 Singapore",
+        "url": "https://22253.live.streamtheworld.com/ONE_FM_913AAC.aac?dist=sphradio-web"
+    }
+]

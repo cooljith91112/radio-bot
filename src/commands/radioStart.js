@@ -1,6 +1,5 @@
 const { VoiceChannel, TextChannel, MessageEmbed } = require("discord.js");
 const axios = require('axios').default;
-
 const instance = axios.create({
     baseURL: 'http://retrowave.ru/api/v1'
 });
@@ -10,15 +9,15 @@ const resourceUrl = 'http://retrowave.ru'
 async function broadcastRadio(client, args, message, voiceChannel, textChannel) {
     const connection = await voiceChannel.join();
     try {
-        playRadio(connection, textChannel);
+        playRadioRetroWave(connection, textChannel);
     } catch (error) {
         console.log(error);
         textChannel.send('Something went wrong. RADIO MON got ill...😱😱');
     }
-
 }
 
-async function playRadio(connection,textChannel) {
+
+async function playRadioRetroWave(connection, textChannel) {
     const nextMusic = await getNextMusic();
     const { id, title, streamUrl, artworkUrl } = nextMusic;
     const nowPlayingMessage = new MessageEmbed()
@@ -26,10 +25,10 @@ async function playRadio(connection,textChannel) {
         .setDescription(title)
         .setColor('LUMINOUS_VIVID_PINK')
         .setThumbnail(`${resourceUrl}${artworkUrl}`);
-    textChannel.send(nowPlayingMessage)
+    textChannel.send(nowPlayingMessage);
     connection.play(`${resourceUrl}${streamUrl}`, { seek: 0, volume: 1 })
         .on('finish', () => {
-            playRadio(connection,textChannel);
+            playRadio(connection, textChannel);
         });
 }
 
