@@ -9,7 +9,6 @@ const CMD_PREFIX = "!";
 
 client.on('message', (message) => {
     if (message.author.bot) return;
-    if(message.author.id !== process.env.ADMIN_ID) return;
     if (message.content.startsWith(CMD_PREFIX)) {
         const commandReply = parseCMD(message);
     } 

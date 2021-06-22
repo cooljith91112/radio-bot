@@ -3,7 +3,7 @@ const axios = require('axios').default;
 const instance = axios.create({
     baseURL: 'http://retrowave.ru/api/v1'
 });
-
+require('dotenv').config();
 const resourceUrl = 'http://retrowave.ru'
 
 async function broadcastRadio(client, args, message, voiceChannel, textChannel) {
@@ -39,6 +39,7 @@ async function getNextMusic() {
 
 module.exports = {
     async execute(client, message, args) {
+        if(message.author.id !== process.env.ADMIN_ID) return;
         const { RADIO_CHANNEL, NOW_PLAYING_CHANNEL } = process.env;
         if (!RADIO_CHANNEL) return message.reply(`Please add RADIO_CHANNEL to .env with a Voice Channel ID`);
         if (!NOW_PLAYING_CHANNEL) return message.reply(`Please add NOW_PLAYING_CHANNEL to .env with a Text Channel ID`);
