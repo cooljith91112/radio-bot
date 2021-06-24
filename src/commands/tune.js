@@ -37,7 +37,11 @@ async function playRadio(connection, textChannel, args, client) {
             }
         }
         currentRadioStation = radioStations[radioIndex];
-        connection.play(`${currentRadioStation.url}`, { seek: 0, volume: 1 });
+        connection.play(`${currentRadioStation.url}`, { seek: 0, volume: 1 })
+                    .on('finish', () => {
+                        textChannel.send(`${currentRadioStation.name}: Broadcast ended. Tuning into next station....`);
+                        playRadio(connection, textChannel, ['next'], client);
+                    });
         const nowPlayingMessage = new MessageEmbed()
             .setTitle("Now Playing")
             .setDescription(currentRadioStation.name)
